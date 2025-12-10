@@ -1,17 +1,16 @@
-let rec dichotomy_search_bound x arr min max =
-    if min == max then
-        false
-    else if min + 1 == max then
-        arr.(min) == x
-    else
-        let avg = (min + max)/2 in
-        if x < arr.(avg) then
-            dichotomy_search_bound x arr min avg
-        else
-            dichotomy_search_bound x arr avg max;;
-
 let dichotomy_search x arr =
-    dichotomy_search_bound x arr 0 (Array.length arr);;
+    let rec dichotomy_search_bound x arr min max =
+        if min == max then
+            false
+        else if min + 1 == max then
+            arr.(min) == x
+        else
+            let avg = (min + max)/2 in
+            if x < arr.(avg) then
+                dichotomy_search_bound x arr min avg
+            else
+                dichotomy_search_bound x arr avg max
+    in dichotomy_search_bound x arr 0 (Array.length arr);;
 
 assert(not (dichotomy_search 0 [||]));
 assert(dichotomy_search 3 [|3|]);
