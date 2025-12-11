@@ -49,6 +49,7 @@ géographique, correspondant à un code postal et à un nom de commune.
   ```ocaml string_of_neighbourhood bdx``` retournera "33000 Bordeaux".
 
 == Exercice 2 : Min-max d'un tableau en C
+// Source : cours Floréal
 
 _Fichier à rendre sous le nom `NOM-minmax.c`._
 
@@ -103,6 +104,7 @@ a une stratégie lui permettant de vider entièrement sa main.
 	le nombre de cartes restant dans la main de la joueuse après avoir appliqué une stratégie optimale.
 
 == Exercice 4 : Retournement de chaîne en C
+// Source : cours Floréal
 
 _Fichier à rendre sous le nom `NOM-mirror.c`._
 

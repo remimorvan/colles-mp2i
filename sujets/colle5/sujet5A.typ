@@ -73,6 +73,7 @@ _Fichier à rendre sous le nom `NOM-memory.c`._
 
 == Exercice 3 : Nombre de voyelles en C
 
+// Source : cours Floréal
 _Fichier à rendre sous le nom `NOM-vowels.c`._
 
 On souhaite déterminer le nombre de voyelles dans une chaîne de caractères en C.
