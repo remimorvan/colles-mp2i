@@ -35,14 +35,14 @@ et contenir des tests codés en dur avec des assert.]*
 
 _Fichier à rendre sous le nom `NOM-geometry.ml`._
 
-On souhaite représenter des points, des droites, et des disques
+On souhaite représenter des points, des cercles, et des disques
 en OCaml. Un point sera représenté par une paire d'abscisse et d'ordonnée
-(qui seront des `float`), une droite par une paire de points, et un disque par un point (son centre) et un rayon (un `float`).
+(qui seront des `float`), un cercle par un point (son centre) et un rayon (un `float`), et un disque par les mêmes informations.
 
 + Définir un type `point` représentant un point.
-+ Définir un type `object` représentant un objet géométrique (soit une droite, soit un disque).
++ Définir un type `shape` représentant un objet géométrique (soit un cercle, soit un disque).
 + Écrire une fonction\
-	```ocaml belongs_to: point -> object -> bool```\
+	```ocaml belongs_to: point -> shape -> bool```\
 	qui détermine si un point appartient à un objet.
 	#footnote[On rappelle qu'un disque est plein, contrairement à un cercle. Par exemple, le point de coordonnées $(1, frac(1,2))$ appartient au disque de centre $(0,0)$ et de rayon $2$.]
 
