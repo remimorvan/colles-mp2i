@@ -33,6 +33,9 @@ et contenir des tests codés en dur avec des assert.]*
 
 == Exercice A1 : Fusion de tableau
 
+// Plus dur qu'il n'y parait. Ok pour les élèves rigoureux, mais pour les autres il y a plusieurs difficultés.
+// C'est un bon exo, mais pas un exo de cours.
+
 _Fichier à rendre sous le nom `NOM-merge.c`._
 
 Écrire une fonction\
@@ -45,6 +48,9 @@ Votre algorithme devra être en temps linéaire en la taille de l'entrée.
 
 == Exercice A2 : Un brin de génétique en OCaml 
 
+// Remarque : un peu dur, beaucoup de type.
+// Bien dans l'idée mais à retravailler : certaines questions pas utiles pour la dernière question.
+
 _Fichier à rendre sous le nom `NOM-ARNm.ml`._
 
 L'acide ribonucléique messager (ARNm) est une molécule qui intervient
@@ -53,9 +59,9 @@ On peut voir un brin d'ARNm comme un mot sur l'alphabet $\{A, U, G, C\}$,
 chaque lettre étant appelée *nucléotide*.
 #footnote[Les lettres A, U, G et C font respectivement référence aux nucléotides adénine, uracile, guanine et cytosine.]
 L'algorithme pour synthétiser une protéine à partir d'un brin ARNm est le suivant :
-+ on regroupe les nucléotides par groupe de trois ;
+- on regroupe les nucléotides par groupe de trois ;
 	chaque groupe de trois nucléotides (par exemple "AUG" et "CGA") est appelé "codon" ;
-+ chaque codon produit un acide aminé (par exemple `Phe` (_phénylalanine_), ou `Lys` (_lysine_)),
+- chaque codon produit un acide aminé (par exemple `Phe` (_phénylalanine_), ou `Lys` (_lysine_)),
 	ou indique le début de la synthèse (`init`), ou l'arrêt de la synthèse (`stop`). 
 	Un codon qui indique le début de la synthèse est aussi toujours associé à un acide aminé.
 	Par exemple, "AUG" indique le début de la synthèse et est associé à l'acide aminé "Met".
