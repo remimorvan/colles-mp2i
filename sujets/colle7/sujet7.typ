@@ -213,7 +213,7 @@ L'algorithme repose sur une observation élémentaire : pour tout nombre naturel
 Le crible d'Érathosthène fonctionne en identifiant tous les entiers composés : ceux qui restent sont les nombres premiers !
 L'algorithme maintient un tableau, qui contient l'information de si un nombre est composé ou premier (jusqu'à preuve du contraire). 
 Initialement, tous les nombres sont supposés premiers, sauf 0 et 1. On commence par éliminer tous
-les multiples de 2 (c'est-à-dire qu'on déclare tous les nombres de ma forme $2*i$ avec $i > 1$) comme étant composés,
+les multiples de 2 (c'est-à-dire qu'on déclare tous les nombres de ma forme $2*i$ avec $i > 1$ comme étant composés),
 puis tous les multiples de 3, puis de 4, etc, jusqu'à $m-1$.
 + Exécutez cet algorithme à la main pour $m = 20$.
 + Quand est venue l'étape d'éliminez les multiples de 4, avez-vous éliminé des nombres qui étaient encore supposés être premiers ? Expliquez pourquoi, puis proposez une amélioration de l'algorithme.
