@@ -1,5 +1,3 @@
-#import "@preview/tdtr:0.4.1" : *
-
 #set page(
   paper: "a4",
   header: text(size: 0.85em, emph[
@@ -97,7 +95,7 @@ Lors de la synthèse, on obtiendra donc la protéine définie par la suite d'aci
 		c'est un codon initiant.
 + On souhaite définir une structure qui décrit l'information de quel acide aminé est associé à
 	un codon donné : on va utiliser une *liste d'association*.
-	Une liste d'associaion est une liste de type ```ocaml ('a * 'b) list```, 
+	Une liste d'association est une liste de type ```ocaml ('a * 'b) list```, 
 	de sorte que si $(c,v)$ et $(c',v')$ sont tous deux éléments de la liste, alors $c != c'$.
 	Autrement dit, une liste d'association encode une fonction qui associe des éléments
 	de type `'a` (appelés *clés*) à des éléments de type `'b` (appelés *valeurs*).

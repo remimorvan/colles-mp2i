@@ -3,7 +3,10 @@ type shape = Circle of point * float | Disc of point * float;;
 
 let belongs_to (p: point) (s: shape) = match p, s with
   | (px, py), Circle((cx, cy), r) ->
-    abs_float((px-.cx)**2. +. (py-.cy)**2. -. r**2.) <= 1E-6
+    (* En Ocaml les float sont encodés sur 64 bits avec la norme IEEE 754.
+    Les mantisse est donc représentée sur 53 bits. 2^(-53) est environ égal à 10^(-16),
+    il est donc raisonnable de choisir une précision de 10^(-15). *)
+    abs_float((px-.cx)**2. +. (py-.cy)**2. -. r**2.) <= 1E-15
   | (px, py), Disc((cx, cy), r) ->
     (px-.cx)**2. +. (py-.cy)**2. <= r**2.;;
 

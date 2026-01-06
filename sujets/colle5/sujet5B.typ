@@ -1,5 +1,3 @@
-#import "@preview/tdtr:0.4.1" : *
-
 #set page(
   paper: "a4",
   header: text(size: 0.85em, emph[

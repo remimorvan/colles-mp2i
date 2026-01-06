@@ -4,6 +4,7 @@
 
 int *merge_sorted(int *arr1, int n1, int *arr2, int n2) {
 	int *merged = calloc(n1 + n2, sizeof(int));
+	assert(merged != NULL);
 	int i1 = 0, i2 = 0;
 	while (i1 + i2 < n1 + n2) {
 		// Il faut faire attention à ne pas accéder
