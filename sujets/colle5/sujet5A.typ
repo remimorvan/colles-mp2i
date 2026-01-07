@@ -105,7 +105,7 @@ appelés _fils gauche_ et _fils droit_.
   qui prend un arbre,
   et retourne un nouvel arbre obtenu à partir du premier en remplaçant l'étiquette d'un nœud
   par la plus grande valeur apparaissant sous ce nœud.
-  #footnote[Par « sous ce nœud » on veut dire formellement « dans le sous-arbre enraciné en ce nœud ».]
+  #footnote[Par «~sous ce nœud~» on veut dire formellement «~dans le sous-arbre enraciné en ce nœud~».]
   Par exemple, sur l'entrée
   
   #align(center)[

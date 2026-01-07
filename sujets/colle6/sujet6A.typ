@@ -112,7 +112,7 @@ Lors de la synthèse, on obtiendra donc la protéine définie par la suite d'aci
 	```
 	et de l'information que les codons initiants sont exactement `UUG`, `CUG` et `AUG`,
 	*produire* une liste d'association `codon_to_effect` de type `(codon * effect) list`.\
-	_Par « produire » on sous-entend qu'il ne faut *pas* écrire cette liste à la main, 
+	_Par «~produire~» on sous-entend qu'il ne faut *pas* écrire cette liste à la main, 
 	mais écrire un bout de code qui génère cette liste à partir de la liste fournie._
 + Écrire une fonction\
 	```ocaml string_to_codon_list: string -> codon list```\

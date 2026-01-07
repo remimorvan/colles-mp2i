@@ -27,7 +27,8 @@ int main(int argc, char **argv) {
 	assert(binom4[2] == 6);
 	assert(binom4[3] == 4);
 	assert(binom4[4] == 1);
-	print_sierpinski(63);
+	assert(argc == 2);
+	print_sierpinski(atoi(argv[1]));
 	return 0;
 }
 

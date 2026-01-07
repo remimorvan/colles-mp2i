@@ -54,7 +54,7 @@ de *liste circulaire doublement chaînée*.
 Concrètement, contrairement à une liste chaînée, cette structure est circulaire
 (un élément a toujours un successeur), et on veut aussi pouvoir accéder
 au prédécesseur d'un élément de la liste. Un exemple est donné en @liste-circulaire-double. Notons qu'une telle liste a toujours un élément
-spécial, appelé « élément de tête ».
+spécial, appelé «~élément de tête~».
 
 #figure(
   image("liste-circulaire-double.svg", width: 50%),
@@ -112,7 +112,7 @@ ferait que 5 serait le nouvel élément de tête.
 	+ En musique, le *cycle des quintes* est une liste circulaire obtenue
 		à partir de l'échelle chromatique en la parcourant par pas de 7.
 		#footnote[Un intervalle de 7 demi-tons (l'intervalle élémentaire séparant
-		'do' de 'do\#', ou encore 'mi' de 'fa') est appelé *quinte*, d'où le nom « cycle des quintes ».]
+		'do' de 'do\#', ou encore 'mi' de 'fa') est appelé *quinte*, d'où le nom «~cycle des quintes~».]
 		Calculez et affichez ce cycle.
 
 #pagebreak()
