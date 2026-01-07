@@ -2,7 +2,7 @@
 
 let rec is_defined lst k = match lst with
   | [] -> false
-  | (k', v)::tail when k == k' -> true
+  | (k', v)::tail when k = k' -> true
   | _::tail -> is_defined tail k;;
 
 assert (is_defined [('a', 0); ('b', 1)] 'b');;
@@ -10,14 +10,14 @@ assert (not (is_defined [('a', 0); ('b', 1)] 'c'));;
 
 let rec get_value lst k = match lst with
   | [] -> failwith("Unknown key.")
-  | (k', v)::tail when k == k' -> v
+  | (k', v)::tail when k = k' -> v
   | _::tail -> get_value tail k;;
 
 assert (get_value [('a', 0); ('b', 1)] 'b' == 1);;
 
 let rec update_value lst k v = match lst with
   | [] -> [(k, v)]
-  | (k', v')::tail when k == k' -> (k', v)::tail
+  | (k', v')::tail when k = k' -> (k', v)::tail
   | (k', v')::tail -> (k', v')::(update_value tail k v);;
 
 assert (get_value (update_value [('a', 0); ('b', 1)] 'c' 2) 'c' == 2);;
@@ -28,7 +28,7 @@ assert (get_value (update_value [('a', 0); ('b', 1)] 'a' 2) 'b' == 1);;
 
 let count_chars_of_str str =
   let rec aux pos count_chars =
-    if pos == String.length str then
+    if pos = String.length str then
       count_chars
     else 
       let old_count = (
@@ -39,7 +39,7 @@ let count_chars_of_str str =
   in aux 0 [];;
 
 let lst = count_chars_of_str "chien de chine"
-in assert (get_value lst 'e' == 3);
+in assert (get_value lst 'e' = 3);
 assert (not (is_defined lst 'z'));;
 
 (* Question 2 *)

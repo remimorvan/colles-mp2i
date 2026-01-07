@@ -227,3 +227,94 @@ puis tous les multiples de 3, puis de 4, etc, jusqu'à $m-1$.
 	dont la $i$-ème entrée vaut $1$ si $i$ est premier, et $0$ sinon.
 + Donner une borne supérieure sur la complexité spatiale et temporelle de la fonction `remove_multiples` puis de la fonction `sieve_eratosthenes`.
 + On peut remarquer que si un nombre $n$ est composé, alors un de ses facteurs est forcément plus petit que $sqrt(n)$ (preuve, par l'absurde : si d'aventure $n$ pouvait s'écrire $k_1 dot k_2$ avec $k_1 > sqrt(n)$ et $k_2 > sqrt(n)$ alors on aurait $n = k_1 dot k_2 > sqrt(n) dot sqrt(n) = n$ : que nenni !). En déduire une amélioration de la fonction `sieve_eratosthenes`. Que deviennent ses complexités spatiales et temporelles ?
+
+== Exercice : Arbres de décisions en OCaml
+
+_Fichier à rendre sous le nom `NOM-decision-trees.ml`._
+
+#figure(tidy-tree-graph[
+	- $x < 1.0$
+		- $x < 0.5$
+			- sortie 1
+			- sortie 2
+		- $x < 2.0$
+			- $x < 1.21$
+				- sortie 3
+				- sortie 4 
+			- sortie 5
+	],
+  caption: [Un arbre de décision.],
+) <decision-tree>
+
+Un arbre de décision est un arbre tel que celui représenté en @decision-tree :
+il représente un algorithme prenant en entrée une variable $x$ de type ```ocaml float```,
+et retournant une sortie de type ```ocaml 'a```---sur l'exemple de @decision-tree, le type de sortie
+est ```ocaml string``` puisque ces sorties sont "sortie 1", ..., "sortie 5".
+Les feuilles de cet arbres (les nœuds qui n'ont pas de fils) correspondent tous à des sorties.
+Les nœuds internes (ceux avec des fils) sont eux étiquettés par des tests de la forme $x < "cst"$ où cst
+est un flottant. Chaque nœud interne a exactement deux fils, appelés _fils gauche_ et _fils droit_.
+
+Un arbre représente une fonction de type ```ocaml float -> 'a``` (appelée *sémantique* de l'arbre), définie de la façon 
+récursive. Étant donné un flottant $x$, la sortie de cette fonction est obtenue en commençant à la _racine_ de l'arbre.
+Si cette racine est une sortie, c'est notre valeur de retour. Sinon, c'est un nœud interne, qui est donc
+étiquetté par un test de la forme $x < "cst"$ : c'est par exemple le cas sur la figure @decision-tree, et le test à la racine
+est $x < 1.0$. Si le test est satisfait, on poursuit l'exécution de notre algorithme en allant dans le _fils gauche_ du nœud,
+et sinon dans le fils droit.
+Par exemple, si $x = 1.13$, sur l'arbre de @decision-tree, la sortie sera "sortie 3" : l'exécution de l'algorithme est
+montré sur la @decision-tree-mark.
+
+#figure(tidy-tree-graph(draw-node: (
+    tidy-tree-draws.label-match-draw-node.with(
+      matches: (
+        mark: (fill: color.rgb("#f8c291"), stroke: none),
+        nil: (post: x => none)
+      ),
+    ),
+  ))[
+	- $x < 1.0$ <mark>
+		- $x < 0.5$
+			- sortie 1
+			- sortie 2
+		- $x < 2.0$ <mark>
+			- $x < 1.21$ <mark>
+				- sortie 3 <mark>
+				- sortie 4 
+			- sortie 5
+	],
+  caption: [Nœuds visités par l'algorithme d'évaluation de l'arbre sur l'entrée $x=1.13$.],
+) <decision-tree-mark>
+
++ On définit ces arbres en OCaml de la façon suivante :\
+	```ocaml 
+	type 'a decision_tree_univariate =
+		| TestUni of float * 'a decision_tree_univariate * 'a decision_tree_univariate
+		| OutputUni of 'a;;
+	```
+	Le trois arguments du constructeur `Test` correspondent respectivement à la constante avec laquelle on compare $x$,
+	le fils gauche du nœud, et son fils droit.
+	+ Définir un arbre de décision `some_tree` de type ```ocaml string decision_tree_univariate``` correspondant
+		à l'arbre de la @decision-tree.
+	+ Écrire une fonction récursive\
+		```ocaml eval_univariate: 'a decision_tree_univariate -> float -> 'a```\
+		qui prend un arbre de décision, un flottant, et évalue la fonction définie par cet arbre sur ce flottant.
++ Les vrais arbres de décisions ne manipulent en réalisé pas qu'une seule variable mais plusieurs. Par convention et soucis de 
+	simplicité, on nommera ces variables $x_0, x_1, ..., x_(n-1)$ ($n in NN$ étant le nombre total de variables).
+	Les tests sont désormais de la forme $x_i < "cst"$ ($i in [|0,n[|$) : on ne peut pas comparer des variabes entre elles,
+	mais on peut comparer n'importe quelle variable avec une constante.
+	+ Définir un type ```ocaml 'a decision_tree``` permettant de représenter ces arbres de décision à plusieurs variables.
+		_Indice : On pourra représenter la variable $x_i$ par l'entier $i$._
+	+ Dans le cas $n=2$ (les variables sont donc $x_0$ et $x_1$), définir un arbre
+		`quarter_planes` de type `string decision tree` qui retourne "NE" (north-east), "NW" (north-west), "SW" (south-west), 
+		"SE" (south-east) selon la position du point $(x_0, x_1)$ dans le plan : par exemple
+		le quart de plan "NE" correspond aux points $lr("["0, +infinity "[") times lr("[" 0, +infinity "[")$,
+		alors que le quart de plan
+		"SE" correspond aux points $lr("["0, +infinity "[") times lr("]" -infinity, 0 "[")$.
+	+ On souhaite maintenant écrire un algorithme pour évaluer ces arbres. Dans le cas univarié,
+		l'entrée était représentée par un flottant. Dans notre cas, pour représenter une entrée $(x_0, x_1, ..., x_(n-1))$,
+		on va utiliser un ```ocaml float array```.
+		Écrire une fonction récursive\
+		```ocaml eval: 'a decision_tree -> float array -> 'a```\
+		qui prend un arbre de décision, un tableau de flottants, et évalue la fonction définie par cet arbre sur ce tableau.
+		Pour rappel, la taille d'un tableau `arr` peut être obtenue avec ```ocaml Array.length arr```,
+		et la $i$-ème entrée de ce tableau avec `arr.(i)`. On peut définir un tableau à l'aide de la syntaxe
+		```ocaml [| x0 ; x1 ; ... |]```.
