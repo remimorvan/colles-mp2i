@@ -108,7 +108,6 @@ Le but de cet exercice est d'afficher cette fractale.
 	de caractères contenant ces arguments.
 
 
-#pagebreak()
 == Exercice B3 : Arbres de décisions en OCaml
 
 _Fichier à rendre sous le nom `NOM-decision-trees.ml`._
