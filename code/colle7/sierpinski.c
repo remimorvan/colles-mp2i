@@ -7,13 +7,6 @@ void print_sierpinski_naive(int n);
 int *binom_list(int n, int *coefs_prec);
 void print_sierpinski(int n);
 
-int *test() {
-	int *p = calloc(10, sizeof(int));
-	for (int i = 0; i < 10; i++)
-		p[i] = i * i;
-	return p;
-}
-
 int main(int argc, char **argv) {
 	assert(binom_naive(3, 6) == 20);
 	assert(binom_naive(10, 10) == 1);

@@ -60,3 +60,9 @@ assert (eval quarter_planes [|-1.; -1.|] = "SW");
 assert (eval quarter_planes [|1.; -1.|] = "SE");
 assert (eval quarter_planes [|-1.; 1.|] = "NW");
 assert (eval quarter_planes [|1.; 1.|] = "NE");;
+
+(* Question 2d *)
+
+(* On choisit comme variant de la fonction eval la hauteur de l'arbre passé en entrée.
+Il est à valeur dans N, et décroit à chaque appel, donc la fonction termine. *)
+(* Autre variant possible : la taille de l'arbre (nombre total de noeuds). *)

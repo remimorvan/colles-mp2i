@@ -123,7 +123,7 @@ sont les *seules fonctions quadratiques* qui réalisent une bijection de $NN^2$ 
 La conjecture Fueter–Pólya affirme elle que ce sont les *seules fonctions polynomiales* satisfaisant cette propriété.
 À ce jour, la conjecture est encore ouverte !
 
-== Exercice A4 : Arbres de décisions en OCaml
+== Exercice A4 : arbres de décision en OCaml
 
 _Fichier à rendre sous le nom `NOM-decision-trees.ml`._\
 *Ne faire cet exercice que si les trois premiers exercices ont été faits.*
@@ -192,7 +192,7 @@ représentée sur la moitié droite de @decision-tree.
 	+ Écrire une fonction récursive\
 		```ocaml eval_univariate: 'a decision_tree_univariate -> float -> 'a```\
 		qui prend un arbre de décision, un flottant, et évalue la fonction définie par cet arbre sur ce flottant.
-+ Les vrais arbres de décisions ne manipulent en réalité pas qu'une seule variable mais plusieurs. Par convention et souci de 
++ Les vrais arbres de décision ne manipulent en réalité pas qu'une seule variable mais plusieurs. Par convention et souci de 
 	simplicité, on nommera ces variables $x_0, x_1, ..., x_(n-1)$ ($n in NN$ étant le nombre total de variables).
 	Les tests sont désormais de la forme $x_i < "cst"$ ($i in [|0,n[|$) : on ne peut pas comparer des variables entre elles,
 	mais on peut comparer n'importe quelle variable avec une constante.
