@@ -18,6 +18,7 @@ void bounded_sort(int *arr, int n, int b) {
 			count[j]--;
 		}
 	}
+	free(count);
 }
 
 void bounded_sort_bis(int *arr, int n) {

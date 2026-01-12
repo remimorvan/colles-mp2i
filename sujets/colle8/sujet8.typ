@@ -30,7 +30,7 @@ par mail à l'adresse `remi@morvan.xyz`.
 
 Lisez les exercices dans leur intégralité avant de vous lancer et ayez toujours de quoi écrire
 devant vous. *#text(red)[Tout fichier rendu doit pouvoir être
-compilé (en C), ou interprété (OCaml) sans erreur ni warning,
+compilé (en C, avec l'option `-Wall`), ou interprété (OCaml) sans erreur ni warning,
 et contenir des tests codés en dur avec des assert.]*
 
 
