@@ -38,7 +38,7 @@ et contenir des tests codés en dur avec des assert.]*
 _Fichier à rendre sous le nom `NOM-merge-sort.ml`._
 
 On rappelle que le tri fusion est un algorithme de tri récursif
-dont le principe est suivant : on découpe la liste en deux,
+dont le principe est le suivant : on découpe la liste en deux,
 on trie chaque moitié (récursivement), puis on fusionne les deux résultats.
 
 Voici une implémentation partielle de cet algorithme.
@@ -52,7 +52,7 @@ let rec split lst = match lst with
 
 let rec merge lst1 lst2 = 
   (* Merges two sorted lists into a sorted list. *)
-  failwith "todo";
+  failwith "todo";;
 
 let rec merge_sort lst = match lst with
   (* Sorts a list using the merge sort algorithm. *)
@@ -132,7 +132,7 @@ Le but de l'exercice est de *déterminer à quels points il faut placer une tour
 + Écrire une fonction\
 	```c int are_mutually_visible(int *elevation, int x1, int x2)```\
 	qui prend en entrée le tableau `elevation`
-	décrivant le profl topographique, et deux indices `x1` et `x2` de ce tableau, et qui détermine si, si des tours étaient placées au point d'abscisse `x1` et d'abscisse `x2`, alors ces tours pourraient se
+	décrivant le profil topographique, et deux indices `x1` et `x2` de ce tableau, et qui détermine si, si des tours étaient placées au point d'abscisse `x1` et d'abscisse `x2`, alors ces tours pourraient se
 	voir mutuellement.
 	
 	#figure(
@@ -210,7 +210,7 @@ Le but de l'exercice est de *déterminer à quels points il faut placer une tour
 		```c int *build_towers_biggest_obstruction(int *elevation)```\
 		qui implémente cet algorithme.
 + On admet qu'une solution est *optimale* si, et seulement si,
-	pour tout point d'abscisse pour tout point *M* où l'on a placé une tour,
+	pour tout point *M* où l'on a placé une tour,
 	pour toute tour *G* strictement à gauche de *M*, pour toute tour
 	*R* (_right_) située à droite de *M*, alors *M* entrave la vision
 	entre *G* et *R*.
@@ -223,7 +223,7 @@ Le but de l'exercice est de *déterminer à quels points il faut placer une tour
 	à l'utilisateur de saisir le profil d'élévation (on rentrera un entier par ligne). Le programme affichera la solution (en listant
 	les abscisses des points où il y a des tours), et écrira dans un fichier
 	`./chappe.log` la liste des appels récursifs qu'il a fait : chaque ligne
-	correspondera à un appel récursif, et donnera l'abscisse des points *A*,
+	correspondra à un appel récursif, et donnera l'abscisse des points *A*,
 	*Z* et *M* (s'il existe).
 
 
@@ -243,7 +243,7 @@ De même, $(1 + 2) + 3$ devient $1 2 + 3 +$.
 Au contraire, $1 + (2 + 3)$ devient 1 2 3 + +,
 
 + Écrire $(1+2)*(3+4)$
-	et $1+2*3+4$ en notation polonais inversée.
+	et $1+2*3+4$ en notation polonaise inversée.
 + On se dote d'un type récursif en OCaml
 	```ocaml type expr =
 	 | Const of int
@@ -273,7 +273,7 @@ Au contraire, $1 + (2 + 3)$ devient 1 2 3 + +,
 	consiste à utiliser une pile : on part d'une pile vide, et on traite la liste de caractères
 	de la façon suivante :
 	- si c'est un entier, on l'empile 
-	- si c'est un opérateur, on l'applique aux deux entiers présent au sommet de la pile, et on empile le résultat.
+	- si c'est un opérateur, on l'applique aux deux entiers présents au sommet de la pile, et on empile le résultat.
 	Un exemple, pour le calcul $3*(10+5)$, qui donne
 	3  10 5 + \* en notation polonaise inversée, est
 	donné en @rpn.

@@ -38,7 +38,7 @@ et contenir des tests codés en dur avec des assert.]*
 _Fichier à rendre sous le nom `NOM-merge-sort.ml`._
 
 On rappelle que le tri fusion est un algorithme de tri récursif
-dont le principe est suivant : on découpe la liste en deux,
+dont le principe est le suivant : on découpe la liste en deux,
 on trie chaque moitié (récursivement), puis on fusionne les deux résultats.
 
 Voici une implémentation partielle de cet algorithme.
@@ -52,7 +52,7 @@ let rec split lst = match lst with
 
 let rec merge lst1 lst2 = 
   (* Merges two sorted lists into a sorted list. *)
-  failwith "todo";
+  failwith "todo";;
 
 let rec merge_sort lst = match lst with
   (* Sorts a list using the merge sort algorithm. *)
@@ -104,10 +104,10 @@ c'est-à-dire si l'une peut être obtenue en permutant les caractères de l'autr
 Rien de plus simple pour déterminer si deux chaînes de caractères sont des anagrammes :
 il suffit de compter le nombre d'occurrences de chaque caractère dans la chaîne, et
 ces valeurs sont égales si et seulement si les deux chaînes sont des anagrammes.
-Par exemple, "niche" est un anagramme de "chien",
+Par exemple, "niche" est une anagramme de "chien",
 "la crise économique" et "le scénario comique" sont des anagrammes, mais
 en revanche "être ou ne pas être, voilà la question" n'est
-pas un anagramme de "oui et la poser n'est que vanité orale" (la première chaîne contient deux 'ê' alors que la seconde non).#footnote[Ce sont en revanche des anagrammes si on ignore les espaces, les accents et la ponctuation. (Source : #link("https://www.topito.com/top-anagramme-retourner-cerveau")[topito.com].)]
+pas une anagramme de "oui et la poser n'est que vanité orale" (la première chaîne contient deux 'ê' alors que la seconde non).#footnote[Ce sont en revanche des anagrammes si on ignore les espaces, les accents et la ponctuation. (Source : #link("https://www.topito.com/top-anagramme-retourner-cerveau")[topito.com].)]
 
 Pour résoudre notre problème, je vous propose d'utiliser une *liste d'association*,
 qui est une liste de type ```ocaml ('a * 'b) list```, 

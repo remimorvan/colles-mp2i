@@ -29,8 +29,7 @@ un second rendu, également sur Moodle, jusqu'à ce dimanche à midi. Vous pouve
 par mail à l'adresse `remi@morvan.xyz`.
 
 Lisez les exercices dans leur intégralité avant de vous lancer et ayez toujours de quoi écrire
-devant vous. *#text(red)[Tout fichier rendu doit pouvoir être
-compilé ou interprété sans erreur ni warning,
+devant vous. *#text(red)[Tout fichier rendu doit pouvoir être interprété sans erreur,
 et contenir des tests codés en dur avec des assert.]* 
 
 == Exercice P1 : Tri fusion en Python
@@ -38,7 +37,7 @@ et contenir des tests codés en dur avec des assert.]*
 _Fichier à rendre sous le nom `NOM-merge-sort.py`._
 
 On rappelle que le tri fusion est un algorithme de tri récursif
-dont le principe est suivant : on découpe la liste en deux,
+dont le principe est le suivant : on découpe la liste en deux,
 on trie chaque moitié (récursivement), puis on fusionne les deux résultats.
 
 Voici une implémentation partielle de cet algorithme.
@@ -71,7 +70,7 @@ def merge_sort(lst):
     """Sorts a list using the merge sort algorithm."""
     raise NotImplementedError
 ```
-+ Lisez le code de la fonction `merge`, et exécutez la à la main sur
++ Lisez le code de la fonction `merge`, et exécutez-la à la main sur
 	la paire de listes ```python ([0,2,4,8], [0,1,3,3])```.
 	Pourquoi les conditions ```python if i == len(lst1)``` et
 	```python elif j == len(lst2)``` sont-elles nécessaires ? _(Appelez-moi pour répondre à cette question à l'oral.)_
@@ -90,10 +89,10 @@ c'est-à-dire si l'une peut être obtenue en permutant les caractères de l'autr
 Rien de plus simple pour déterminer si deux chaînes de caractères sont des anagrammes :
 il suffit de compter le nombre d'occurrences de chaque caractère dans la chaîne, et
 ces valeurs sont égales si et seulement si les deux chaînes sont des anagrammes.
-Par exemple, "niche" est un anagramme de "chien",
+Par exemple, "niche" est une anagramme de "chien",
 "la crise économique" et "le scénario comique" sont des anagrammes, mais
 en revanche "être ou ne pas être, voilà la question" n'est
-pas un anagramme de "oui et la poser n'est que vanité orale" (la première chaîne contient deux 'ê' alors que la seconde non).#footnote[Ce sont en revanche des anagrammes si on ignore les espaces, les accents et la ponctuation. (Source : #link("https://www.topito.com/top-anagramme-retourner-cerveau")[topito.com].)]
+pas une anagramme de "oui et la poser n'est que vanité orale" (la première chaîne contient deux 'ê' alors que la seconde non).#footnote[Ce sont en revanche des anagrammes si on ignore les espaces, les accents et la ponctuation. (Source : #link("https://www.topito.com/top-anagramme-retourner-cerveau")[topito.com].)]
 
 Pour résoudre notre problème, je vous propose d'utiliser un *dictionnaire*.
 + Écrivez une fonction\
