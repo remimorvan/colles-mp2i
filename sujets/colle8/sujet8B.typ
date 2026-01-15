@@ -16,11 +16,11 @@
   size: 11pt,
 )
 #set document(
-  title: [Colle 8]
+  title: [Colle 8 · Sujet B]
 )
 #set enum(numbering: "1.a.")
 
-= Colle 8 · Sujet
+= Colle 8 · Sujet B
 
 *_À lire avant toute chose :_*
 Apportez du soin à la qualité de vos réponses plus qu'à la quantité, et pensez à écrire des tests. 
@@ -33,8 +33,69 @@ devant vous. *#text(red)[Tout fichier rendu doit pouvoir être
 compilé (en C, avec l'option `-Wall`), ou interprété (OCaml) sans erreur ni warning,
 et contenir des tests codés en dur avec des assert.]*
 
+== Exercice B1 : Tri fusion en OCaml
 
-== Exercice : Anagrammes en OCaml
+_Fichier à rendre sous le nom `NOM-merge-sort.ml`._
+
+On rappelle que le tri fusion est un algorithme de tri récursif
+dont le principe est suivant : on découpe la liste en deux,
+on trie chaque moitié (récursivement), puis on fusionne les deux résultats.
+
+Voici une implémentation partielle de cet algorithme.
+```ocaml
+let rec split lst = match lst with
+  (* Takes a list and splits its content into
+    two lists of equal length (±1 if the initial list has odd length). *)
+  | [] -> ([], [])
+  | h::tail ->
+    let (lst1, lst2) = split tail in (h::lst2, lst1);;
+
+let rec merge lst1 lst2 = 
+  (* Merges two sorted lists into a sorted list. *)
+  failwith "todo";
+
+let rec merge_sort lst = match lst with
+  (* Sorts a list using the merge sort algorithm. *)
+  | [] -> []
+  | [x] -> [x]
+  | _ ->
+    let lst1, lst2 = split lst in 
+    merge (merge_sort lst1) (merge_sort lst2);;
+```
++ Écrire une fonction ```ocaml print_list: int list -> unit``` qui permet
+	d'afficher une liste d'entiers. Vérifiez que la fonction `split` a bien le comportement attendu sur un ou deux exemples.
++ Implémentez la fonction `merge`, et testez les fonctions `merge` et `merge_sort`.
++ Déterminez (et *justifiez*) les complexités temporelles des fonctions `split`, `merge` et `merge_sort`.
+
+== Exercice B2 : Crible d'Ératosthène en C
+
+_Fichier à rendre sous le nom `NOM-eratosthenes.c`._
+
+Le crible d'Ératosthène est un algorithme permettant de déterminer tous les nombres premiers plus petits qu'un entier $m$
+passé en entrée.
+L'algorithme repose sur une observation élémentaire : pour tout nombre naturel $k >= 2$, tous ses multiples de la forme $k * i$ avec $i > 1$ sont forcément composés. En fait, la réciproque est aussi vraie, par définition d'un nombre premier.
+Le crible d'Ératosthène fonctionne en identifiant tous les entiers composés : ceux qui restent sont les nombres premiers !
+L'algorithme maintient un tableau, qui contient l'information de si un nombre est composé ou premier (jusqu'à preuve du contraire). 
+Initialement, tous les nombres sont supposés premiers, sauf 0 et 1. On commence par éliminer tous
+les multiples de 2 (c'est-à-dire qu'on déclare tous les nombres de la forme $2*i$ avec $i > 1$ comme étant composés),
+puis tous les multiples de 3, puis de 4, etc, jusqu'à $m-1$.
++ Exécutez cet algorithme à la main pour $m = 20$.
++ Quand est venue l'étape d'éliminer les multiples de 4, avez-vous éliminé des nombres qui étaient encore supposés être premiers ? Expliquez pourquoi, puis proposez une amélioration de l'algorithme.
++ Écrire une fonction\
+	```c void remove_multiples(int *arr, int n, int k)```\
+	qui prend en entrée un tableau `arr`, rempli de 0 et de 1, de taille $n$, ainsi qu'un entier $k$, et qui définit la valeur de
+	`arr[k*i]` à 0 pour tous les $i > 1$.
++ En déduire une fonction\
+	```c int* sieve_eratosthenes(int m)```\ 
+	qui prend en entrée un entier $m$, et retourne un tableau de taille $m$,
+	dont la $i$-ème entrée vaut $1$ si $i$ est premier, et $0$ sinon.
++ Donner une borne supérieure sur la complexité spatiale et temporelle de la fonction `remove_multiples` puis de la fonction `sieve_eratosthenes`.
++ On peut remarquer que si un nombre $n$ est composé, alors un de ses facteurs est forcément plus petit ou égal à $sqrt(n)$ (preuve, par l'absurde : si d'aventure $n$ pouvait s'écrire $k_1 dot k_2$ avec $k_1 > sqrt(n)$ et $k_2 > sqrt(n)$ alors on aurait $n = k_1 dot k_2 > sqrt(n) dot sqrt(n) = n$ : que nenni !). En déduire une amélioration de la fonction `sieve_eratosthenes`. Que deviennent ses complexités spatiales et temporelles ?
++ Faire en sorte qu'à l'exécution de votre programme, l'utilisateur
+	doive saisir un entier $m$ ; votre programme écrira alors ensuite l'ensemble des entiers strictement plus petits que $m$ dans un fichier
+	`./primes.txt`.
+
+== Exercice B3 : Anagrammes en OCaml
 
 _Fichier à rendre sous le nom `NOM-anagram.ml`._
 
@@ -83,29 +144,3 @@ de type ```ocaml (char * int) list```, on a associé la valeur 1 à 'a', 5 à 'b
 		qui détermine si deux chaînes sont des anagrammes.
 	+ Donnez une borne supérieure (raisonnable) sur la complexité temporelle de votre fonction
 		`count_chars_of_str`, puis de votre fonction `are_anagrams`.
-
-
-== Exercice : Crible d'Ératosthène en C
-
-_Fichier à rendre sous le nom `NOM-eratosthene.c`._
-
-Le crible d'Ératosthène est un algorithme permettant de déterminer tous les nombres premiers plus petits qu'un entier $m$
-passé en entrée.
-L'algorithme repose sur une observation élémentaire : pour tout nombre naturel $k >= 2$, tous ses multiples de la forme $k * i$ avec $i > 1$ sont forcément composés. En fait, la réciproque est aussi vraie, par définition d'un nombre premier.
-Le crible d'Ératosthène fonctionne en identifiant tous les entiers composés : ceux qui restent sont les nombres premiers !
-L'algorithme maintient un tableau, qui contient l'information de si un nombre est composé ou premier (jusqu'à preuve du contraire). 
-Initialement, tous les nombres sont supposés premiers, sauf 0 et 1. On commence par éliminer tous
-les multiples de 2 (c'est-à-dire qu'on déclare tous les nombres de la forme $2*i$ avec $i > 1$ comme étant composés),
-puis tous les multiples de 3, puis de 4, etc, jusqu'à $m-1$.
-+ Exécutez cet algorithme à la main pour $m = 20$.
-+ Quand est venue l'étape d'éliminer les multiples de 4, avez-vous éliminé des nombres qui étaient encore supposés être premiers ? Expliquez pourquoi, puis proposez une amélioration de l'algorithme.
-+ Écrire une fonction\
-	```c void remove_multiples(int *arr, int n, int k)```\
-	qui prend en entrée un tableau `arr`, rempli de 0 et de 1, de taille $n$, ainsi qu'un entier $k$, et qui définit la valeur de
-	`arr[k*i]` à 0 pour tous les $i > 1$.
-+ En déduire une fonction\
-	```c int* sieve_eratosthenes(int m)```\ 
-	qui prend en entrée un entier $n$, et retourne un tableau de taille $m$,
-	dont la $i$-ème entrée vaut $1$ si $i$ est premier, et $0$ sinon.
-+ Donner une borne supérieure sur la complexité spatiale et temporelle de la fonction `remove_multiples` puis de la fonction `sieve_eratosthenes`.
-+ On peut remarquer que si un nombre $n$ est composé, alors un de ses facteurs est forcément plus petit que $sqrt(n)$ (preuve, par l'absurde : si d'aventure $n$ pouvait s'écrire $k_1 dot k_2$ avec $k_1 > sqrt(n)$ et $k_2 > sqrt(n)$ alors on aurait $n = k_1 dot k_2 > sqrt(n) dot sqrt(n) = n$ : que nenni !). En déduire une amélioration de la fonction `sieve_eratosthenes`. Que deviennent ses complexités spatiales et temporelles ?
