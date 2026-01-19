@@ -171,10 +171,10 @@ Le but de l'exercice est de *déterminer à quels points il faut placer une tour
 	mais celles en `x1` $= 0$ et `x2` $= 3$ ne le peuvent pas puisque le point d'abscisse $1$
 	bloque leur champ de vision.
 + Écrire une fonction\
-	```c int is_solution_valid(int *elevation, int *towers)```\
+	```c int is_solution_valid(int *elevation, int *towers, int n)```\
 	qui détermine si une solution `towers` au problème `elevation` est 
-	*valide*. `towers` sera le tableau de même taille que `elevation`, tel
-	que `towers[i]` vaut 1 si on y a construit une tour, et 0 sinon.
+	*valide*. `towers` et `elevations` sont des tableaux de taille $n$, et `towers` sera tel que
+	`towers[i]` vaut 1 si on y a construit une tour, et 0 sinon.
 	Par *valide*, on entend qu'un message peut être transmis de *A* à *Z*
 	en utilisant ces tours : on ne cherche pas à déterminer si cette solution
 	minimise le nombre de tours.
@@ -191,7 +191,7 @@ Le but de l'exercice est de *déterminer à quels points il faut placer une tour
 		d'altitude maximal. (_Pas besoin de rendre cette question : vous 
 		pouvez m'appeler pour me montrer vos exemples._)
 	+ Écrivez une fonction\
-		```c int *build_towers_highest(int *elevation)```\
+		```c int *build_towers_highest(int *elevation, int n)```\
 		qui implémente cet algorithme. En entrée, on prendra le profil 
 		topographique, et on retournera un tableau de 0/1 de même taille,
 		dont la $i$-ème entrée vaut 1 ssi on a construit une tour au
@@ -207,7 +207,7 @@ Le but de l'exercice est de *déterminer à quels points il faut placer une tour
 	+ Exécutez cet algorithme à la main sur l'exemple que vous avez trouvé à
 		la question 3d.
 	+ Écrivez une fonction\
-		```c int *build_towers_biggest_obstruction(int *elevation)```\
+		```c int *build_towers_biggest_obstruction(int *elevation, int n)```\
 		qui implémente cet algorithme.
 + On admet qu'une solution est *optimale* si, et seulement si,
 	pour tout point *M* où l'on a placé une tour,
@@ -215,7 +215,7 @@ Le but de l'exercice est de *déterminer à quels points il faut placer une tour
 	*R* (_right_) située à droite de *M*, alors *M* entrave la vision
 	entre *G* et *R*.
 	+ Implémentez une fonction\
-		```c int is_solution_optimal(int *elevation, int *towers)```\
+		```c int is_solution_optimal(int *elevation, int *towers, int n)```\
 		qui détermine si une solution est optimale.
 	+ Vérifiez empiriquement que les solutions calculées par
 		`build_towers_biggest_obstruction` sont optimales.
