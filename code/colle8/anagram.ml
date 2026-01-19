@@ -50,7 +50,7 @@ let rec get_keys lst = match lst with
 
 let are_assoc_list_equal lst1 lst2 = 
   let is_assoc_list_dominated lst1 lst2 =
-    (* Vérifie si, pour toute clé de lst1, cette clé est aussi présente de lst2 et les valeurs coïncides. *)
+    (* Vérifie si, pour toute clé de lst1, cette clé est aussi présente de lst2 et les valeurs coïncident. *)
     let rec iter_on_keys keys list_coincide = match keys with
     | [] -> list_coincide
     | k::keys_tail -> iter_on_keys keys_tail (list_coincide && is_defined lst2 k && (get_value lst1 k == get_value lst2 k))
@@ -67,3 +67,13 @@ assert(are_anagrams_of "niche de chien" "chien de chine");;
 assert(are_anagrams_of "la crise économique" "le scénario comique");;
 assert(not (are_anagrams_of "être ou ne pas être, voilà la question" "oui et la poser n'est que vanité orale"));;
 
+(* count_chars_of_str parcourt la chaîne de caractère une fois ; à chaque étape on peut potentiellement parcourir la liste d'association en entier. La taille de cette dernière est majorée par la taille de la châine. Au total, on obtient donc une borne supérieure quadratique en la taille de l'entrée pour count_chars_of_str.
+
+are_assoc_list_equal lst1 lst2 s'exécute en temps O(|lst1|*|lst2|) (pour chaque élément d'une liste, on parcourt la seconde à la recherche de cet élément).
+
+Complexité temporelle de la fonction are_anagrams_of str1 str2 :
+On pose n = max(|str1|, |str2|).
+O(n^2) pour les calculs de cpt1 et cpt2. Ces listes ont une taille O(n).
+L'appel à are_assoc_list_equal cpt1 cpt2 se fait donc en O(n^2).
+Au total, on obtient donc un algorithme qui est, dans le pire cas, quadratique selon l'entrée.
+*)

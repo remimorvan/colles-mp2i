@@ -220,11 +220,9 @@ Le but de l'exercice est de *déterminer à quels points il faut placer une tour
 	+ Vérifiez empiriquement que les solutions calculées par
 		`build_towers_biggest_obstruction` sont optimales.
 + Faire en sorte que, à l'exécution de votre programme, celui-ci demande
-	à l'utilisateur de saisir le profil d'élévation (on rentrera un entier par ligne). Le programme affichera la solution (en listant
-	les abscisses des points où il y a des tours), et écrira dans un fichier
-	`./chappe.log` la liste des appels récursifs qu'il a fait : chaque ligne
-	correspondra à un appel récursif, et donnera l'abscisse des points *A*,
-	*Z* et *M* (s'il existe).
+	à l'utilisateur de saisir le profil d'élévation (on rentrera un entier par ligne).
+	Le programme affichera la solution en listant
+	les abscisses des points où il y a des tours.
 
 
 == Exercice A3 : Notation polonaise inversée en OCaml
@@ -240,7 +238,7 @@ en notation infixe (la notation « classique »),
 on écrit plutôt *l'opérateur après les arguments.*
 Par exemple, $1+2$ devient 1 2 +.
 De même, $(1 + 2) + 3$ devient $1 2 + 3 +$.
-Au contraire, $1 + (2 + 3)$ devient 1 2 3 + +,
+Au contraire, $1 + (2 + 3)$ devient 1 2 3 + +.
 
 + Écrire $(1+2)*(3+4)$
 	et $1+2*3+4$ en notation polonaise inversée.

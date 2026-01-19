@@ -27,3 +27,9 @@ let rec print_lst lst = match lst with
     | [] -> ()
     | h::tail -> (print_int(h); print_char(' '); print_lst tail)
 in print_lst l; print_newline(); print_lst lsorted; print_newline();
+
+(* Complexité temporelle de split : linéaire en la taille de la liste (on la parcourt une seule fois).
+Merge : Au pire cas, on parcourt chaque liste une fois, on obtient donc un algo au pire linéaire en la taille de l'entrée.
+Merge_sort : On a une équation pour la complexité temporelle de la forme T(n) = 2*T(n/2) + O(n)
+ce qui nous donne T(n) = O(n*log(n)). 
+*)

@@ -6,6 +6,7 @@ void remove_multiples(int *arr, int n, int k);
 int *sieve_eratosthenes(int m);
 
 int main(int argc, char **argv) {
+	// Test remove_multiples
 	int arr[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 	remove_multiples(arr, 10, 3);
 	for (int i = 0; i < 10; i++) {
@@ -15,11 +16,24 @@ int main(int argc, char **argv) {
 			assert(arr[i] == 1);
 		}
 	}
+	// Test sieve_eratosthenes
 	int *is_prime = sieve_eratosthenes(64);
 	assert(is_prime[2] && is_prime[17] && is_prime[31]);
 	assert(!is_prime[0] && !is_prime[1] && !is_prime[6] && !is_prime[57]);
 	free(is_prime);
-
+	// Print primes below threshold
+	int m = 0;
+	do {
+		printf("Entier ? \n");
+	} while (scanf("%d", &m) < 1);
+	is_prime = sieve_eratosthenes(m);
+	for (int i = 0; i < m; i++) {
+		if (is_prime[i]) {
+			printf("%d ", i);
+		}
+	}
+	printf("\n");
+	free(is_prime);
 	return 0;
 }
 
