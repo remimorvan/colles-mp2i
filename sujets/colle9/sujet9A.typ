@@ -54,6 +54,7 @@ Démontrez que la fonction `get_first`, sur un tableau `arr`, de taille `n`, ret
 - `n`, sinon.
 
 == Exercice A2 : Files en OCaml
+// La question 3 est un peu dure / pas très intéressante car en avance sur le programme.
 
 _Fichier à rendre sous le nom `NOM-queue.ml`._
 

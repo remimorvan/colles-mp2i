@@ -37,33 +37,16 @@ in assert(eq_list (expr_to_rpn e) [Int(1);Int(2);Times;Int(3);Plus]);;
 
 (* Question 4 *)
 
-type 'a stack = 'a list;;
-
-let empty_stack () = [];;
-
-let is_stack_empty s = match s with
- | [] -> true
- | _ -> false;;
-
-let push_on_stack s x = x::s;;
-
-let pop_stack s = match s with
- | [] -> failwith "Empty stack"
- | h::t -> (h, t);;
-
 let eval_rpn rpn =
-  let rec eval_rpn_aux rpn stack = match rpn with
-    | [] -> let res, _ = pop_stack stack in res
-    | Int(n)::tail -> eval_rpn_aux tail (push_on_stack stack n)
-    | Plus::tail ->
-      let y, stack2 = pop_stack stack in
-      let x, stack3 = pop_stack stack2 in
-      eval_rpn_aux tail (push_on_stack stack3 (x+y))
-    | Times::tail ->
-      let y, stack2 = pop_stack stack in
-      let x, stack3 = pop_stack stack2 in
-      eval_rpn_aux tail (push_on_stack stack3 (x*y))
-    in eval_rpn_aux rpn (empty_stack ());;
+  let rec eval_rpn_aux rpn stack = match rpn, stack with
+    | [], [res] -> res
+    | Int(n)::tail, _ -> eval_rpn_aux tail (n::stack)
+    | Plus::tail, x::y::stack_tail ->
+      eval_rpn_aux tail ((x+y)::stack_tail)
+    | Times::tail, x::y::stack_tail ->
+      eval_rpn_aux tail ((x*y)::stack_tail)
+    | _ -> failwith "Unexpected stack content."
+    in eval_rpn_aux rpn [];;
 
 (* (1+2)*(3+4) *)
 let e = Mult(Add(Const(1),Const(2)),Add(Const(3),Const(4)))

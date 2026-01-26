@@ -125,11 +125,11 @@ On considère la fonction suivante en OCaml.
 ```ocaml
 let fibo n =
 	assert(n>=0);
-  let rec fibo_aux k val_p val_pp =
+  let rec fibo_aux k a b =
 		if k = n then
-			val_pp
+			b
 		else
-			fibo_aux (k+1) val_pp (val_p + val_pp)
+			fibo_aux (k+1) a (a + b)
   in fibo_aux 0 1 1;;
 ```
 La personne qui a écrit cette fonction souhaitait que ```fibo n``` retourne le $n$-ème terme $f_n$
