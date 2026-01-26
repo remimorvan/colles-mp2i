@@ -53,6 +53,7 @@ pour tout $n in NN$.
 
 == Exercice A2 : Complexité d'une fonction récursive
 
+// Todo : change h < sum_list t into h > sum_list
 _Fichier à rendre sur papier ou sous le nom `NOM-complexity-bigger-than-sum.{txt/pdf}`._
 
 On considère les fonctions suivantes en OCaml.
