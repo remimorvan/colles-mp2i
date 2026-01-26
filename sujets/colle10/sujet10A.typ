@@ -16,11 +16,11 @@
   size: 11pt,
 )
 #set document(
-  title: [Colle 10 · Sujet]
+  title: [Colle 10 · Sujet A]
 )
 #set enum(numbering: "1.a.")
 
-= Colle 10 · Sujet 
+= Colle 10 · Sujet A
 
 *_À lire avant toute chose :_*
 Apportez du soin à la qualité de vos réponses plus qu'à la quantité, et pensez à écrire des tests. 
@@ -33,7 +33,7 @@ devant vous. *#text(red)[Tout fichier rendu doit pouvoir être
 compilé (en C, avec l'option `-Wall`), ou interprété (OCaml) sans erreur ni warning,
 et contenir des tests codés en dur avec des assert.]*
 
-== Exercice : Correction d'une fonction récursive
+== Exercice A1 : Correction d'une fonction récursive
 
 _Fichier à rendre sur papier ou sous le nom `NOM-correctness-sum-integers.{txt/pdf}`._
 
@@ -51,7 +51,7 @@ let sum_integers n =
 Démontrez que `sum_integers n` retourne $frac(n(n+1),2)$
 pour tout $n in NN$.
 
-== Exercice : Complexité d'une fonction récursive
+== Exercice A2 : Complexité d'une fonction récursive
 
 _Fichier à rendre sur papier ou sous le nom `NOM-complexity-bigger-than-sum.{txt/pdf}`._
 
@@ -69,33 +69,9 @@ let rec is_bigger_than_sum lst = match lst with
 Démontrez brièvement que la fonction `is_bigger_than_sum` termine sur toute entrée.
 Quelle est sa complexité temporelle ?
 
-== Exercice : Complexité d'une fonction récursive
+== Exercice A3 : Files et nombres de Hamming en C
 
-// Plutôt dur
-
-_Fichier à rendre sur papier ou sous le nom `NOM-complexity-foo.{txt/pdf}`._
-
-On considère la fonction suivante en OCaml, de type ```ocaml int -> int -> int```.
-```ocaml
-let rec foo a b = 
-  if a <= 0 || b <= 0 then
-    max a b
-  else (
-    let x = foo (a-1) b
-    and y = foo a (b-1) in
-    if x <= y then
-      x + foo (a-1) b
-    else
-      a*a + foo a (b-1)
-  );;
-```
-
-Démontrez brièvement que cette fonction termine sur toute entrée.
-Quelle est sa complexité temporelle ?
-
-== Exercice : Files et nombres de Hamming en C
-
-// Application issue de Jean-Pierre Becirspahic (https://info-llg.fr/)
+// Application issue de Jean-Pierre Becirspahic (https://info-llg.fr/option-mpsi/pdf/05.piles_et_files.pdf)
 _Fichier à rendre sous le nom `NOM-hamming.c`._
 
 Le but de cet exercice est d'implémenter une structure de files en C.
@@ -118,64 +94,22 @@ Je vous laisse le choix de l'implémentation (maillons chaînés, tableau circul
 	que par 2, 3, et 5. Les plus petits nombres de Hamming sont 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, etc.
 	On se propose de générer les nombres de Hamming en utilisant la remarque suivante :
 	tout nombre de Hamming autre que 1 est le produit d'un nombre de Hamming strictement inférieur
-	avec 2, 3 ou 5. Et réciproquement, le produit d'un nombre de Hamming avec 2, 3 ou 5 est toujours un nombre de Hamming.
-	L'algorithme fonctionne ainsi :
-	on maintient trois files d'entiers, `h2`, `h3` et `h5`, initialisée tous les trois avec l'entier 1.
+	avec 2, 3 ou 5. Et réciproquement, le produit d'un nombre de Hamming avec 2, 3 ou 5 est toujours un nombre de Hamming. On considère l'algorithme suivant :
+	on maintient trois files d'entiers, `h2`, `h3` et `h5`, toutes initialisées pour ne contenir qu'une valeur : l'entier 1.
 	Tant qu'on veut produire un nombre de Hamming,
 	on chosit le plus petit entier `n` parmi les sommets de `h2`, `h3` et `h5`, on le défile,
 	on affiche `n`, puis on enfile `2 * n` à `h2`, `3 * n` à `h3` et `5 * n` à h5.\
 	Écrire une fonction
 	```c void hamming(int m)```
 	qui affiche tous les entiers de Hamming inférieur à $m$.
-
-== Exercice : Un compteur en OCaml
-
-_Fichier à rendre sur papier ou sous le nom `NOM-countdown.ml`._
-
-On considère la fonction (partielle) suivante, qui transforme une pile de 0 et de 1 en
-une autre pile de 0 et de 1.
-- initialement, on part d'une pile remplie d'un nombre arbitraire de 1
-- ensuite, on itère la construction suivante sur la pile :
-	- si le sommet de la pile est un 1, on le remplace par un 0.
-	- sinon, on dépile tous les 0 jusqu'à tomber sur le premier 1 ; on remplace ce 1 par un 0,
-		puis on réempile un 1 pour 0 dépilé.
-	- sinon (càd s'il n'y a que des 0), on s'arrête.
-
-+ Itérez cette fonction sur la pile [1;1;1], jusqu'à ce que l'algorithme termine.
-	Que semble faire cette fonction ?
-+ On souhaite maintenant l'implémenter en OCaml. Comme notre fonction est *partielle* (sur la 
-	pile remplie de 0, on ne retourne rien), on va utiliser le *type option*.
-	En OCaml, le type `'a option` permet de représenter soit un objet de
-	type `'a` (`Some (x)`), ou rien (`None`). C'est très utile pour définir des fonctions partielles.
-	Par exemple
-	```ocaml
-	let first_elem lst = match lst with
-		| [] -> None
-		| h::_ -> Some(h)
-	```
-	est une fonction de type ```ocaml 'a list -> 'a option``` qui
-	retourne le premier élément d'une liste.\
-	+ Écrire une fonction\
-		```ocaml next_stack: int list -> int list option```
-		qui prend une pile et retourne soit `Some(p)` où p est la pile obtenue par la fonction décrite dans l'énoncé, soit `None` s'il n'y a rien à retourner.
-	+ Écrire une fonction récursive\
-		```ocaml countdown: int list option -> unit```\
-		qui ne fait rien sur `None`, et sur `Some(p)` applique récursivement la fonction
-		`next_stack` à `p` en affichant l'état de la pile à chaque étape.
-+ Donnez un variant permettant de montrer que la fonction `countdown` termine.
-
-== Exercice : Correction d'un algo de racine carrée en C
-
-_Fichier à rendre sur papier ou sous le nom `NOM-correctness-sqrt.{txt/pdf}`._
-
-```c
-int my_sqrt(int n) {
-	assert(n >= 0);
-	int i = 0;
-	while ((i + 1) * (i + 1) <= n) {
-		i++;
-	}
-	return i;
-}
-```
-Que retourne `my_sqrt(n)` pour $n in NN$ ? Démontrez-le (on pourra admettre que la fonction termine sur toute entrée).
++ *Comparaison avec un algorithme naïf.* On considère ici un algorithme plus naïf,
+	qui se contente d'énumérer les entiers de $1$ à $m-1$ et de tester pour chacun s'il est
+	un nombre de Hamming. Pour tester si un entier $n$ est un nombre de Hamming, on peut
+	par exemple le diviser par 2 tant qu'il est divisible par 2, puis par 3, puis par 5.
+	Le résultat final est égal à 1 si et seulement si $n$ est un nombre de Hamming.
+	+ Empiriquement, pour $m=10^9$, mon ordinateur met $10$s à exécuter l'algorithme naïf,
+		contre moins de $0.01$s pour l'algorithme avec files.
+		Expliquez cette différence.
+	+ Implémentez cette fonction naïve (et vérifiez qu'elle donne les même résultats
+		que la fonction précédente).
+		_Vous pouvez utiliser les commandes Unix `time` pour mesurer le temps d'exécution d'un programme, `wc -l` pour compter le nombre de lignes d'un fichier et l'opérateur `>` pour rediriger la sortie vers un fichier._

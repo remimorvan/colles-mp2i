@@ -1,6 +1,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct s_cell {
 	int val;
@@ -23,23 +24,38 @@ int queue_is_empty(Queue *);
 void queue_free(Queue *);
 
 void hamming(int);
+void hamming_naive(int);
 
 int main(int argc, char *argv[]) {
-	Queue *q = queue_create();
-	queue_enqueue(q, 0);
-	queue_enqueue(q, 1);
-	queue_enqueue(q, 2);
-	queue_print(q);
-	queue_dequeue(q);
-	queue_print(q);
-	queue_enqueue(q, 3);
-	queue_enqueue(q, 4);
-	queue_print(q);
-	queue_dequeue(q);
-	queue_print(q);
-	queue_free(q);
-	printf("Hamming:\n");
-	hamming(30);
+	// Tests de la file
+	// Queue *q = queue_create();
+	// queue_enqueue(q, 0);
+	// queue_enqueue(q, 1);
+	// queue_enqueue(q, 2);
+	// queue_print(q);
+	// queue_dequeue(q);
+	// queue_print(q);
+	// queue_enqueue(q, 3);
+	// queue_enqueue(q, 4);
+	// queue_print(q);
+	// queue_dequeue(q);
+	// queue_print(q);
+	// queue_free(q);
+	if (argc == 3 &&
+		(strcmp(argv[1], "queue") == 0 || strcmp(argv[1], "naive") == 0)) {
+		if (strcmp(argv[1], "queue") == 0) {
+			printf("Hamming algo: with queue.\n");
+			hamming(atoi(argv[2]));
+		} else {
+			printf("Hamming algo: naive version.\n");
+			hamming_naive(atoi(argv[2]));
+		}
+	} else {
+		printf("Computes Hamming numbers up to a threshold.\nUsage : %s algo "
+			   "m where 'algo' is either 'queue' or 'naive', and m is the "
+			   "upper bound.\n",
+			   argv[0]);
+	}
 	return 0;
 }
 
@@ -122,14 +138,8 @@ void hamming(int m) {
 	queue_enqueue(h2, 1);
 	queue_enqueue(h3, 1);
 	queue_enqueue(h5, 1);
-	int n = 0;
+	int n = 1;
 	while (n < m) {
-		// Compute minimum of all queues
-		n = queue_peek(h2);
-		if (queue_peek(h3) < n)
-			n = queue_peek(h3);
-		if (queue_peek(h5) < n)
-			n = queue_peek(h5);
 		// Remove minimum of all queues
 		if (queue_peek(h2) == n)
 			queue_dequeue(h2);
@@ -142,8 +152,36 @@ void hamming(int m) {
 		queue_enqueue(h3, 3 * n);
 		queue_enqueue(h5, 5 * n);
 		printf("%d\n", n);
+		// Compute minimum of all queues
+		n = queue_peek(h2);
+		if (queue_peek(h3) < n)
+			n = queue_peek(h3);
+		if (queue_peek(h5) < n)
+			n = queue_peek(h5);
 	}
 	queue_free(h2);
 	queue_free(h3);
 	queue_free(h5);
+}
+
+int is_hamming(int m) {
+	while (m % 2 == 0) {
+		m = m / 2;
+	}
+	while (m % 3 == 0) {
+		m = m / 3;
+	}
+	while (m % 5 == 0) {
+		m = m / 5;
+	}
+	return (m == 1);
+}
+
+void hamming_naive(int m) {
+	assert(m >= 0);
+	for (int i = 1; i < m; i++) {
+		if (is_hamming(i)) {
+			printf("%d\n", i);
+		}
+	}
 }
