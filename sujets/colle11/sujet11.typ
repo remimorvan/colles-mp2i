@@ -65,6 +65,9 @@ une autre pile de 0 et de 1.
 
 == Exercice 2 : Numération de Zeckendorf en C
 // Dur
+// Todo : retirer les questions int rar_is_empty(resizable_array *rar);
+// et int rar_get_size(resizable_array *rar);
+// elles ne servent à rien (et posent la question de ce qu'est la taille : la capacité ? le nombre d'éléments != -1 ?)
 _Fichier à rendre sur papier ou sous le nom `NOM-zeckendorf.c`._
 
 Vous connaissez l'écriture en base 10, en base 2, et plus généralement en base $b in NN_(>0)$, où la
