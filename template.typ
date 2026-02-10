@@ -1,12 +1,3 @@
-#set page(
-  paper: "a4"
-)
-#set text(
-  font: "Cochin",
-  size: 11pt,
-  lang: "fr"
-)
-
 #let coloured_tag(content, colour) = {
 	box(inset: (left: .48em, bottom: -.18em), 
 		box(
@@ -52,7 +43,9 @@
 			coloured_tag("unknown difficulty", rgb("#ff0000"))
 		}
 		if "languages" in data and data.at("languages").find(x => lower(x.at(0)) == language) != none {
-			coloured_tag(data.at("languages").find(x => lower(x.at(0)) == language).at(0), rgb("#f0eded"))
+			let lang = data.at("languages").find(x => lower(x.at(0)) == language).at(0)
+			coloured_tag(lang, rgb("#f0eded"))
+			[#metadata(lang) <language>]
 		} else {
 			coloured_tag("unknown language '" + language + "'", rgb("#ff0000"))
 		}
@@ -67,23 +60,23 @@
 	})
 }
 
-#let frontpage(title: [], subtitle: [], author: "", email: "") = {
+#let frontpage(title: [], subtitle: [], author: "", email: "", image_url: "") = {
 	set document(
 		title: title,
 		author: author
 	)
-	v(.5fr)
+	v(.75fr)
 	text(size: 22pt, fill: rgb("#222222"), weight: "bold", title)
 	v(0em)
 	text(size: 15pt, fill: rgb("#222222"), style: "italic", subtitle)
 	v(4em)
 	align(right, {
-		text(size: 20pt, fill: rgb("#388fce"), weight: "bold", smallcaps(author))
+		text(size: 20pt, fill: rgb("#388fce"), weight: "bold", author)
 		linebreak()
 		text(size: 13pt, fill: rgb("#222222"), raw(email))
 	})
 	v(1fr)
-	align(center, image("./img/colles.png", width: 70%))
+	align(center, image(image_url, width: 70%))
 	v(.5fr)
 	colbreak()
 }
