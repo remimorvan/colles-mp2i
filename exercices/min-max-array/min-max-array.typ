@@ -4,7 +4,7 @@
 #exercise(
   title: [Min-max d'un tableau],
   language: "c",
-  difficulty: 2,
+  difficulty: 1,
   themes: ("tableaux",),
 	source: [#link("https://www.labri.fr/perso/fmoranda/pg101/")[Cours de C de Floréal Morandat à l'ENSEIRB].]
 )

@@ -7,7 +7,7 @@
   title: [Télégraphe de Chappe en milieu montagneux],
   language: "c",
   difficulty: 3,
-  themes: ("tableaux", "récursivité", "complexité", "I/O")
+  themes: ("I/O", "récursivité", "tableaux","complexité")
 )
 
 #figure(

@@ -11,7 +11,7 @@
 )
 
 #frontpage(
-  title: [Exercices de colles\ d'informatique en MP2I],
+  title: [Quelques exercices de colles\ d'informatique en MP2I],
   subtitle: [donnés lors de l'année scolaire 2025--2026\ dans la classe de Géraldine Olivier au Lycée Montaigne],
   author: "Rémi Morvan",
   email: "www.morvan.xyz",
@@ -93,7 +93,9 @@ et contenir des tests codés en dur avec des assert.
     "merge-sorted", "ARNm", "twoway-sort", "geometry", "doubly-linked-list", "dichotomy-search",
     "exp-square", "bounded-sort", "cantor-bijection", "decision-trees", "sierpinski",
     "merge-sort", "chappe", "rpn", "eratosthenes", "anagrams",
-    "correctness-array-sum", "correctness-while42", "correctness-fact", "correctness-fibo"
+    "correctness-array-sum", "correctness-while42", "correctness-fact", "correctness-fibo",
+    "correctness-sum-integers", "complexity-bigger-than-sum", "complexity-strange-recursive-fun", 
+    "hamming", "countdown", "zeckendorf"
   )
   for exo in exercices {
     include "./exercices/" + exo + "/" + exo + ".typ"

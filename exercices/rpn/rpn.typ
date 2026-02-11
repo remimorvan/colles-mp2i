@@ -5,7 +5,7 @@
   title: [Notation polonaise inversée],
   language: "ocaml",
   difficulty: 2,
-  themes: ("récursivité", "complexité", "arbres", "piles/files", "I/O", "arithmétique")
+  themes: ("récursivité", "complexité", "arbres", "piles/files", "arithmétique")
 )
 
 La *notation polonaise inversée* (_reverse polish notation_ ou _RPN_ en anglais) permet de décrire

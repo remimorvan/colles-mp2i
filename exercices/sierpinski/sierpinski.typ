@@ -5,11 +5,11 @@
   title: [Triangle de Sierpiński],
   language: "c",
   difficulty: 3,
-  themes: ("tableaux", "mémoire", "récursivité", "I/O")
+  themes: ("tableaux", "récursivité", "complexité", "terminaison", "I/O")
 )
 
-Le *triangle de Sierpiński* est une figure fractale, découverte en 1915 par le mathématicien
-Wacław Sierpiński, et représentée sur la figure @sierpinski.
+Le *triangle de Sierpiński* est une figure fractale, représentée sur la @sierpinski, et découverte en 1915 par le mathématicien
+Wacław Sierpiński.
 C'est probablement l'une des figures fractales les plus simples à construire, grâce
 à son étonnant rapport avec les coefficients binomiaux.
 Le but de cet exercice est d'afficher cette fractale.

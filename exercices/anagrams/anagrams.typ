@@ -5,7 +5,7 @@
   title: [Anagrammes],
   language: "ocaml",
   difficulty: 2,
-  themes: ("récursivité", "dictionnaires", "complexité")
+  themes: ("dictionnaires", "récursivité", "complexité")
 )
 
 Le but de cet exercice est de déterminer si deux chaînes de caractères sont des *anagrammes*,

@@ -55,7 +55,7 @@ est un flottant. Chaque nœud interne a exactement deux fils, appelés _fils gau
 Un arbre représente une fonction de type ```ocaml float -> 'a``` (appelée *sémantique* de l'arbre), définie de la façon 
 récursive. Étant donné un flottant $x$, la sortie de cette fonction est obtenue en commençant à la _racine_ de l'arbre.
 Si cette racine est une sortie, c'est notre valeur de retour. Sinon, c'est un nœud interne, qui est donc
-étiqueté par un test de la forme $x < "cst"$ : c'est par exemple le cas sur la figure @decision-tree, et le test à la racine
+étiqueté par un test de la forme $x < "cst"$ : c'est par exemple le cas sur la @decision-tree, et le test à la racine
 est $x < 1.0$. Si le test est satisfait, on poursuit l'exécution de notre algorithme en allant dans le _fils gauche_ du nœud,
 et sinon dans le fils droit.
 Par exemple, si $x = 1.13$, sur l'arbre de @decision-tree, la sortie sera "sortie 3" : l'exécution de l'algorithme est
@@ -103,7 +103,7 @@ représentée sur la moitié droite de @decision-tree.
 	image("./mnist.png", width: 50%),
   caption: [Images, représentant des chiffres, issues du jeu de données MNIST.],
 ) <mnist>
-Les arbres de décision sont au cœur de plusieurs techniques de _machine learning_. Nous illustrons cela
+Les arbres de décision sont au cœur de plusieurs techniques de _machine learning_. Nous illustrons cela sur
 un exemple de classification d'images, de $28 times 28$ pixels, en noir et blanc, représentant des chiffres, voir la @mnist.
 Une telle image est représentée par un tableau de flottants de taille 784 (= $28 dot.c 28$). La $i$-ème entrée représente
 la couleur du $i$-ème pixel : 0.0 est un pixel parfaitement blanc, et 1.0 représente un pixel parfaitement noir.
@@ -111,17 +111,17 @@ la couleur du $i$-ème pixel : 0.0 est un pixel parfaitement blanc, et 1.0 repr�
 Le but d'un algorithme d'_apprentissage supervisé_, est, à partir d'un grand jeu d'exemples (c'est-à-dire d'images,
 munies de la sortie attendue, c'est-à-dire ici du chiffre représenté sur l'image), d'apprendre une _fonction_
 qui prend en entrée une telle image, et retourne le chiffre indiqué dessus.
-#footnote[Bien sûr, la difficulté ne réside pas tant dans le fait de retourner la bonne réponse sur les données sur 
-lesquelles on a appris, mais de retourner la bonne réponse sur d'autres données...]
+Bien sûr, la difficulté ne réside pas tant dans le fait de retourner la bonne réponse sur les données sur 
+lesquelles on a appris, mais de retourner la bonne réponse sur d'autres données...
 
 Un arbre de décision est une façon naturelle et simple de représenter une telle fonction, dont les sorties sont
 de type `int` (plus précisément, elles sont dans l'intervalle $[|0,9|]$.)
 Souvent, apprendre un arbre de décision se révèle être relativement peu efficace (l'arbre est généralement très grand,
 et la fonction apprise n'est pas toujours très satisfaisante). Une technique un peu plus raffinée, appelée
 *forêts aléatoires* a été développée à la fin des années 1990s, pour pallier certains désavantages des arbres de décision.
-L'idée est de, plutôt que d'apprendre *un seul* (grand) arbre de décision, de plutôt apprendre
-*plusieurs* (petits) arbres---ce qui justifie le nom de «~forêt~». Pour que ces arbres soient distincts les uns des
-autres un facteur aléatoire est introduit, en limitant artificiellement (et aléatoirement) quels pixels peuvent
+L'idée est de, plutôt que d'apprendre *un seul grand arbre* de décision, de plutôt apprendre
+*plusieurs petits arbres*---ce qui justifie le nom de «~forêt~». Pour que ces arbres soient distincts les uns des
+autres, un facteur aléatoire est introduit, en limitant artificiellement (et aléatoirement) quels pixels peuvent
 être utilisés dans un test.
 Les forêts aléatoires sont, bien que relativement simples, terriblement efficaces sur certains problèmes
 d'apprentissage : c'est notamment le cas pour le problème de classification des chiffres sur le jeu de données MNIST (@mnist).

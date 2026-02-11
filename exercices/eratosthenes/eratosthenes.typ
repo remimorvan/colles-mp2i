@@ -5,7 +5,7 @@
   title: [Crible d'Ératosthène],
   language: "c",
   difficulty: 2,
-  themes: ("tableaux", "arithmétique", "complexité", "I/O")
+  themes: ("I/O", "tableaux", "complexité", "arithmétique")
 )
 
 Le crible d'Ératosthène est un algorithme permettant de déterminer tous les nombres premiers plus petits qu'un entier $m$

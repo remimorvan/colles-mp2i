@@ -2,7 +2,7 @@
 #let exercise = exercise.with(data: json("../../data.json"))
 
 #exercise(
-  title: [Correction d'un calcul de la suite de Fibonacci],
+  title: [Correction d'un calcul de Fibonacci],
   language: "théorique",
   difficulty: 3,
   themes: ("correction", ),
