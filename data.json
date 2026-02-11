@@ -1,8 +1,21 @@
 {
 	"difficulty": [
-		"exercice de cours",
-		"exercice d'application",
-		"exercice d'approfondissement"
+		["exercice de cours", "Exercices de cours"],
+		["exercice d'application", "Exercices d'application"],
+		["exercice d'approfondissement", "Exercices d'approfondissement"]
+	],
+	"languages": [
+		["OCaml", "Exercices en OCaml"],
+		["C", "Exercices en C"],
+		["Théorique", "Exercices théoriques"]
+	],
+	"themes": [
+		"complexité",
+		"récursivité",
+		"arbres",
+		"types",
+		"mémoire",
+		"tableaux"
 	],
 	"colours": [
 		"#d6e5bd",
@@ -11,18 +24,5 @@
 		"#ffcbe1",
 		"#dcccec",
 		"#ffdab4"
-	],
-	"languages": [
-		["OCaml", "Exercices en OCaml"],
-		["C", "Exercices en C"],
-		["Théorique", "Exercices théoriques"]
-	],
-	"tags": [
-		"complexité",
-		"récursivité",
-		"arbres",
-		"types",
-		"mémoire",
-		"tableaux"
 	]
 }

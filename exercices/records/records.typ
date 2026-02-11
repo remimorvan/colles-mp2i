@@ -5,7 +5,7 @@
   title: [Types enregistrement],
   language: "ocaml",
   difficulty: 1,
-  tags: ("types",)
+  themes: ("types",)
 )
 
 On souhaite créer un type enregistrement `neighbourhood` qui permette de représenter une zone

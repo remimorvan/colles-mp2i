@@ -5,8 +5,8 @@
   title: [Retournement de chaîne],
   language: "c",
   difficulty: 2,
-  tags: ("tableaux", "mémoire"),
-	source: [#link("https://www.labri.fr/perso/fmoranda/pg101/")[Cours de C de Floréal Morandat à l'ENSEIRB]]
+  themes: ("tableaux", "mémoire"),
+	source: [#link("https://www.labri.fr/perso/fmoranda/pg101/")[Cours de C de Floréal Morandat à l'ENSEIRB.]]
 )
 
 + Écrire une fonction\

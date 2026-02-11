@@ -6,7 +6,7 @@
   title: [Arbres binaires],
   language: "ocaml",
   difficulty: 2,
-  tags: ("récursivité", "arbres", "complexité")
+  themes: ("récursivité", "arbres", "complexité")
 )
 
 On s'intéresse à des arbres binaires étiquettés par des entiers. Ce sont des structures, définies récursivement : un tel arbre est soit une simple feuille, à qui on a associé un entier,

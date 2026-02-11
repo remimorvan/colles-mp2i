@@ -5,7 +5,7 @@
   title: [Uno à une joueuse],
   language: "ocaml",
   difficulty: 3,
-  tags: ("récursivité", "types", "complexité")
+  themes: ("récursivité", "types", "complexité")
 )
 
 On s'intéresse à une variante du jeu de cartes Uno, à une joueuse.

@@ -5,8 +5,8 @@
   title: [Nombre de voyelles],
   language: "c",
   difficulty: 2,
-  tags: ("tableaux",),
-	source: [#link("https://www.labri.fr/perso/fmoranda/pg101/")[Cours de C de Floréal Morandat à l'ENSEIRB]]
+  themes: ("tableaux",),
+	source: [#link("https://www.labri.fr/perso/fmoranda/pg101/")[Cours de C de Floréal Morandat à l'ENSEIRB.]]
 )
 
 On souhaite déterminer le nombre de voyelles dans une chaîne de caractères en C.

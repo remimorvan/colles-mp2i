@@ -22,6 +22,7 @@
 #show heading: set block(above: 2em, below: 1em)
 #set enum(numbering: "1.a.")
 #set heading(numbering: "I.")
+#set page(numbering: "1")
 
 #heading(numbering: none)[Organisation]
 
@@ -36,47 +37,40 @@ Quand une source est mentionnée, tout ou partie de l'exercice s'inspire directe
 de cette source, la formulation même de l'exercice m'étant cependant propre.
 Quand aucune source n'est mentionnée, cela signifie que j'ai écrit cet exercice
 sans source _directe_ : je ne saurais cependant prétendre à aucune forme d'originalité.
-J'ai cependant essayé, d'autant que faire se peut, de créer des exercices _motivés et motivants_. 
+J'ai par ailleurs essayé, d'autant que faire se peut, de créer des exercices _motivés et motivants_. 
 Par exemple, j'ai essayé de ne jamais demander d'implémenter une structure sans que la suite de
 l'exercice n'en propose une véritable application. En conséquence, certains exercices
 sont particulièrement longs.
 
-Ce document a été mis en page à l'aide de #link("https://typst.app/")[Typst].
+Ce document a été mis en page avec #link("https://typst.app/")[Typst].
 
+// Sommaires
 #colbreak()
-#let is_before(x, y) = {
-  return (
-    (x.location().position().at("page") < y.location().position().at("page"))
-    or ((x.location().position().at("page") == y.location().position().at("page"))
-    and (x.location().position().at("y") <= y.location().position().at("y")))
-  )
-}
-#heading(level: 1, numbering: none)[Sommaires par langage]
-#context {
-  for mylang in ("OCaml", "C", "Théorique") {
-    heading(level: 2, numbering: none)[Sommaire des exercices #mylang]
-    let exos = query(
-      heading.where(numbering: "I.")
+#heading(level: 1, outlined: false, numbering: none)[Sommaire par langage et difficulté]
+#for lang in json("./data.json").languages {
+  heading(level: 2, bookmarked: true, outlined: false, numbering: none)[#lang.at(1)]
+  for diff in json("./data.json").difficulty {
+    heading(level: 3, bookmarked: true, outlined: false, numbering: none)[#diff.at(1)]
+    tagged_outline(
+      target_tag: x => (x.language == lang.at(0))
+        and (x.difficulty == diff.at(0))
     )
-    let langs = query(selector(<language>))
-    assert(exos.len() == langs.len())
-    for i in range(exos.len()) {
-      if langs.at(i).value == mylang {
-        let loc = exos.at(i).location()
-        link(loc, box(
-          numbering("I.", i+1) + " " + exos.at(i).body
-          + " " + box(width: 1fr, repeat[~.~]) + " "
-          + [#loc.page()]
-        ))
-        linebreak()
-      }
-    }
   }
 }
+
 #colbreak()
-#heading(level: 1, numbering: none)[Sommaires par thème abordé]
+#heading(level: 1, outlined: false, numbering: none)[Sommaire par thème]
+#for theme in json("./data.json").themes.sorted() {
+  let theme_title = theme.replace(regex("^\w"), m=>upper(m.text))
+  heading(level: 2, bookmarked: true, outlined: false, numbering: none)[#theme_title]
+  tagged_outline(
+    target_tag: x => (theme in x.themes),
+    addendum: dct => " (" + dct.tags.language + " · " + dct.tags.difficulty + ")"
+  )
+}
 #colbreak()
 
+// Exercices
 #{
   let exercices = ("binary-trees", "locality", "memory-return", "min-max-array", "mirror-string", "records", "uno", "vowels")
   for exo in exercices {

@@ -5,7 +5,7 @@
   title: [Types sommes et produits],
   language: "ocaml",
   difficulty: 1,
-  tags: ("types",)
+  themes: ("types",)
 )
 
 On souhaite définir un type `locality` qui représente un échelon du maillage   

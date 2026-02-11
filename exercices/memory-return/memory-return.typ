@@ -5,7 +5,7 @@
   title: [Un problème de mémoire],
   language: "c",
   difficulty: 1,
-  tags: ("mémoire", "tableaux")
+  themes: ("mémoire", "tableaux")
 )
 
 + Le code suivant a un comportement indéterminé. Pourquoi ?

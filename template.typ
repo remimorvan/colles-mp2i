@@ -1,3 +1,5 @@
+#import "tagged-heading.typ": *
+
 #let coloured_tag(content, colour) = {
 	box(inset: (left: .48em, bottom: -.18em), 
 		box(
@@ -11,16 +13,16 @@
 }
 
 #let tag(content, data : (:)) = {
-	if not "tags" in data or not "colours" in data {
+	if not "themes" in data or not "colours" in data {
 		coloured_tag("incomplete data", rgb("ff0000"))
 		return;
 	}
-	let tags = data.at("tags")
+	let themes = data.at("themes")
 	let colours = data.at("colours")
-	let pos = tags.position(x => x == content)
+	let pos = themes.position(x => x == content)
 	let colour
 	if pos == none {
-		coloured_tag("undefined tag", rgb("ff0000"))
+		coloured_tag("undefined theme", rgb("ff0000"))
 		return;
 	} else {
 		pos = calc.rem(pos, colours.len())
@@ -29,28 +31,41 @@
 	coloured_tag(content, colour)
 }
 
-#let exercise(title: [], difficulty: 0, language: "", tags: (), source: "", data: (:)) = {
-	heading(title, depth: 1)
+#let exercise(title: [], difficulty: 0, language: "", themes: (), source: "", data: (:)) = {
+	// Get difficulty
+	let difficulty_text
+	let difficulty_colour
+	if ("difficulty" in data and difficulty > 0
+	and difficulty - 1 < data.at("difficulty").len()) {
+		difficulty_text = data.at("difficulty").at(difficulty - 1).at(0)
+		difficulty_colour =	rgb("#f0eded")
+	} else {
+		difficulty_text = "unknown difficulty"
+		difficulty_colour = rgb("#ff0000")
+	}
+	// Get language
+	let language_text
+	let language_colour 
+	if ("languages" in data and
+	data.at("languages").find(x => lower(x.at(0)) == language) != none) {
+		language_text = data.at("languages").find(x => lower(x.at(0)) == language).at(0)
+		language_colour = rgb("#f0eded")
+	} else {
+		language_text = "unknown language '" + language + "'"
+		language_colour = rgb("#ff0000")
+	}
+	tagged_heading(title, depth: 1, tags: (
+		"language": language_text,
+		"difficulty": difficulty_text,
+		"themes": themes
+	))
 	v(-.5em)
 	h(-.5em)
 	text(size: .9em, {
-		if "difficulty" in data and difficulty > 0 and difficulty - 1 < data.at("difficulty").len() {
-			coloured_tag(
-				data.at("difficulty").at(difficulty - 1),
-				rgb("#f0eded")
-			)
-		} else {
-			coloured_tag("unknown difficulty", rgb("#ff0000"))
-		}
-		if "languages" in data and data.at("languages").find(x => lower(x.at(0)) == language) != none {
-			let lang = data.at("languages").find(x => lower(x.at(0)) == language).at(0)
-			coloured_tag(lang, rgb("#f0eded"))
-			[#metadata(lang) <language>]
-		} else {
-			coloured_tag("unknown language '" + language + "'", rgb("#ff0000"))
-		}
-		for tag_label in tags {
-			tag(tag_label, data: data)
+		coloured_tag(difficulty_text, difficulty_colour)
+		coloured_tag(language_text, language_colour)
+		for theme in themes {
+			tag(theme, data: data)
 		}
 		if source != "" {
 			v(.5em)
