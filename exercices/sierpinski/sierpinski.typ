@@ -18,7 +18,7 @@ Le but de cet exercice est d'afficher cette fractale.
 		text(size: 0.05em, weight: "bold", raw(triangle, block: true))
 	},
   caption: [Le triangle de Sierpiński.],
-	supplement: "Figure",
+	kind: image
 ) <sierpinski>
 + En utilisant la formule de Pascal, qu'on rappelle être
 	$ binom(n,k) = binom(n-1,k-1) + binom(n-1,k) $

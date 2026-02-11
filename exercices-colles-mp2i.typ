@@ -29,7 +29,7 @@
 Ce polycopié d'exercices est intégralement placé sous #link("https://creativecommons.org/licenses/by/4.0/deed.fr")[licence CC BY 4.0].
 Les exercices sont classés par difficulté (exercices « de cours », d'application et d'approfondissement) ainsi que par thème.
 La difficulté n'est donnée qu'à titre purement indicative : d'une part celle-ci dépend grandement
-du moment dans l'année où l'exercice est donné, et d'autre part la difficulté exercices les complexes 
+du moment dans l'année où l'exercice est donné, et d'autre part la difficulté exercices les plus complexes 
 est souvent progressive; ils contiennent donc généralement des questions « de cours ».
 
 Les pages suivantes contiennent d'une part

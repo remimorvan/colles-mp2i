@@ -15,7 +15,6 @@ Le but de cet exercice est de calculer la bijection $f$ de $NN^2$ dans $NN$ repr
 L'idée derrière cette bijection est simplement d'énumérer les paires d'entiers par diagonale. Au sein d'une diagonale, 
 on énumère les paires selon les $x$ croissants.
 Ainsi, on a par exemple $f(0,0) = 0$, $f(0,1) = 1$ et $f(1,0) = 2$, comme représenté en @cantor.
-L'exercice est à faire dans le langage de votre choix.
 #figure(
 	cetz.canvas({
 		import cetz.draw: *
@@ -48,7 +47,6 @@ L'exercice est à faire dans le langage de votre choix.
 	caption: [Une bijection de $NN^2$ dans $NN$.],
 ) <cantor>
 + Définir une fonction *récursive*
-	```c int bij(int x, int y)``` (en C) ou
 	```ocaml bij: int * int -> int``` (en OCaml)
 	calculant $f$.
 // + Quelle est la complexité temporelle de `bij(x,y)`, en fonction de $x$, $y$ et $f(x,y)$ ?
