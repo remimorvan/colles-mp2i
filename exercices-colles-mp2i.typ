@@ -48,6 +48,8 @@ l'exercice n'en propose une véritable application. En conséquence, certains ex
 sont particulièrement longs.
 
 Ce document a été mis en page avec #link("https://typst.app/")[Typst].
+Les sources de ce document sont disponibles
+sur #link("https://github.com/remimorvan/colles-mp2i")[github.com/remimorvan/colles-mp2i]. Des corrections imparfaites sont disponibles dans le répertoire `exercices` de ce projet.
 
 #heading(numbering: none)[Consignes]
 
