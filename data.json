@@ -7,7 +7,7 @@
 	"languages": [
 		["OCaml", "Exercices en OCaml"],
 		["C", "Exercices en C"],
-		["Théorique", "Exercices théoriques"]
+		["théorique", "Exercices théoriques"]
 	],
 	"themes": [
 		"complexité",
@@ -15,7 +15,16 @@
 		"arbres",
 		"types",
 		"mémoire",
-		"tableaux"
+		"tableaux",
+		"dictionnaires",
+		"float",
+		"tri",
+		"listes chaînées",
+		"terminaison",
+		"correction",
+		"I/O",
+		"piles/files",
+		"arithmétique"
 	],
 	"colours": [
 		"#d6e5bd",

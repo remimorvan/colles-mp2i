@@ -24,7 +24,7 @@ int *foo(int step) {
 	return p;
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char *argv[]) {
 	int *p = foo(2);
 	printf("%d\n", p[4]);
 	free(p);

@@ -14,7 +14,7 @@ territorial français : pour faire simple, on veut seulement représenter soit d
 (représentés par un entier à deux chiffres). Par exemple, le code INSEE de Bordeaux est le 33063, et 
 le numéro de département de la Gironde est le 33.
 + Écrire un type somme `locality` correspondant à la description précédente. 
-+ Écrire une fonction `is_part_of` de type `locality -> locality -> bool` qui détermine
++ Écrire une fonction `is_part_of` de type ```ocaml locality -> locality -> bool``` qui détermine
 	si 1. la première localité est une commune, 2. la seconde est un département, et 3.
   la commune appartient au département.
 	On admettra que les deux premiers chiffres du code INSEE d'une commune

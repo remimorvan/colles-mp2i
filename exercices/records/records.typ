@@ -18,6 +18,6 @@ géographique, correspondant à un code postal et à un nom de commune.
     city = "Bordeaux";
   }
   ```
-+ Écrire une fonction `string_of_neighbourhood` de type `neighbourhood -> string` qui associe
++ Écrire une fonction `string_of_neighbourhood` de type ```ocaml neighbourhood -> string``` qui associe
   à chaque zone une chaîne de caractères la représentant. Par exemple,
   ```ocaml string_of_neighbourhood bdx``` retournera "33000 Bordeaux".

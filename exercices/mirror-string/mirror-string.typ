@@ -19,7 +19,7 @@
 
 	Vous pourrez tester votre code avec la fonction `main` suivante.
 	```c
-	int main(int argc, char** argv) {
+	int main(int argc, char *argv[]) {
 			char str[100] = "Hello world!";
 			char str_rev[100] = "";
 			reverse(str, str_rev);

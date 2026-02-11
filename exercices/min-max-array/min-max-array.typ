@@ -11,7 +11,7 @@
 
 On souhaite, étant donné un tableau, calculer son minimum et son maximum.
 Écrire une fonction\
-```c void min_max(int l, int* t, int *min, int *max)```\
+```c void min_max(int l, int t[], int *min, int *max)```\
 réalisant ce calcul. L'entrée `l` représente la taille du tableau `t`, et
 `min` et `max` sont des pointeurs vers les cases mémoires où l'on souhaite stocker le résultat.
 Vous être libres de choisir le comportement de cette fonction si le tableau est vide.

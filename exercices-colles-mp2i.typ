@@ -27,7 +27,12 @@
 #heading(numbering: none)[Organisation]
 
 Ce polycopié d'exercices est intégralement placé sous #link("https://creativecommons.org/licenses/by/4.0/deed.fr")[licence CC BY 4.0].
-Les exercices sont classés par difficulté (exercices « de cours », d'application et d'approfondissement) ainsi que par thème. Les pages suivantes contiennent d'une part
+Les exercices sont classés par difficulté (exercices « de cours », d'application et d'approfondissement) ainsi que par thème.
+La difficulté n'est donnée qu'à titre purement indicative : d'une part celle-ci dépend grandement
+du moment dans l'année où l'exercice est donné, et d'autre part la difficulté exercices les complexes 
+est souvent progressive; ils contiennent donc généralement des questions « de cours ».
+
+Les pages suivantes contiennent d'une part
 un *sommaire par langage (sous-catégorifié selon la difficulté),
 ainsi qu'un sommaire par thème abordé*.
 Par ailleurs, ces exercices ont été donnés entre le mois de décembre et le mois de février :
@@ -43,6 +48,16 @@ l'exercice n'en propose une véritable application. En conséquence, certains ex
 sont particulièrement longs.
 
 Ce document a été mis en page avec #link("https://typst.app/")[Typst].
+
+#heading(numbering: none)[Consignes]
+
+Chaque sujet était précédé des consignes suivantes.
+
+Apportez du soin à la qualité de vos réponses plus qu'à la quantité, et pensez à écrire des tests. 
+Lisez les exercices dans leur intégralité avant de vous lancer et ayez toujours de quoi écrire
+devant vous. Tout fichier rendu doit pouvoir être
+compilé (en C, avec l'option `-Wall`), ou interprété (OCaml) sans erreur ni warning,
+et contenir des tests codés en dur avec des assert.
 
 // Sommaires
 #colbreak()
@@ -72,9 +87,15 @@ Ce document a été mis en page avec #link("https://typst.app/")[Typst].
 
 // Exercices
 #{
-  let exercices = ("binary-trees", "locality", "memory-return", "min-max-array", "mirror-string", "records", "uno", "vowels")
+  let exercices = (
+    "binary-trees", "locality", "memory-return", "min-max-array",
+    "mirror-string", "records", "uno", "vowels",
+    "merge-sorted", "ARNm", "twoway-sort", "geometry", "doubly-linked-list", "dichotomy-search",
+    "exp-square", "bounded-sort", "cantor-bijection", "decision-trees", "sierpinski",
+    "merge-sort", "chappe", "rpn", "eratosthenes", "anagrams",
+    "correctness-array-sum", "correctness-while42", "correctness-fact", "correctness-fibo"
+  )
   for exo in exercices {
     include "./exercices/" + exo + "/" + exo + ".typ"
-    
   }
 }

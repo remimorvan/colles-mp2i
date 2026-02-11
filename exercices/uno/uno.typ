@@ -27,14 +27,14 @@ a une stratégie lui permettant de vider entièrement sa main.
 + Montrer que le problème est non-trivial : donner un (tout petit) exemple où la joueuse peut
 	vider sa main, et un (tout petit) exemple où elle ne peut pas le faire.
 + Définir une fonction\
-	``` is_playable: card -> card -> bool```,\
+	```ocaml is_playable: card -> card -> bool```,\
 	qui prend la dernière carte jouée et une 
 	carte que l'on souhaite jouer, et qui retourne si on peut effectivement jouer cette carte.
 + On veut implémenter ici une stratégie _gloutonne_ : on va regarder la liste des cartes qu'on a en 
 	main, et on va jouer la première carte que l'on peut jouer. On réitère ce processus jusqu'à ce
 	que l'on ne puisse plus jouer, c'est-à-dire soit jusqu'à ce qu'on n'ait plus de carte en main (victoire !), soit jusqu'à ce qu'aucune de nos cartes ne soit jouable.
 	Définir une fonction récursive terminale\
-	``` greedy_play : card -> card list -> card list -> int```\
+	```ocaml greedy_play : card -> card list -> card list -> int```\
 	qui prend en entrée la dernière carte jouée, et la main de la joueuse (séparée en deux listes), et 
 	qui retourne le nombre de cartes restant dans la main de la joueuse après avoir appliqué cette stratégie gloutonne jusqu'à ne plus pouvoir jouer. 
 	Les deux listes de cartes représentent respectivement les cartes que l'on a déjà essayé, sans succès, 
@@ -43,6 +43,6 @@ a une stratégie lui permettant de vider entièrement sa main.
 + Montrez que cette stratégie n'est pas optimale, c'est-à-dire qu'il existe une main initiale telle
 	qu'en utilisant la stratégie gloutonne, on se retrouve à ne plus pouvoir jouer en ayant encore des cartes en main, alors qu'il existe une autre stratégie permettant de vider sa main.
 + Implémenter une fonction récursive\
-	``` optimal_play : card -> card list -> int```
+	```ocaml optimal_play : card -> card list -> int```
 	qui prend en entrée la dernière carte jouée, et la main de la joueuse, et qui retourne
 	le nombre de cartes restant dans la main de la joueuse après avoir appliqué une stratégie optimale.

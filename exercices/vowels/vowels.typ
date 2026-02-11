@@ -11,7 +11,7 @@
 
 On souhaite déterminer le nombre de voyelles dans une chaîne de caractères en C.
 + Écrire une fonction\
-	```c int in_array(char x, int n, char *arr)```\
+	```c int in_array(char x, int n, char arr[])```\
 	qui détermine si un caractère `x` est présent dans un tableau de caractères `arr` de taille `n`.
 + *En déduire* une fonction\
 	```c int is_vowel(char c)```\
