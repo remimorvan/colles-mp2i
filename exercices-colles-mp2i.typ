@@ -63,11 +63,11 @@ et contenir des tests codés en dur avec des assert.
 
 // Sommaires
 #colbreak()
-#heading(level: 1, outlined: false, numbering: none)[Sommaire par langage et difficulté]
+#heading(level: 1, bookmarked: true, outlined: false, numbering: none)[Sommaire par langage et difficulté]
 #for lang in json("./data.json").languages {
   heading(level: 2, bookmarked: true, outlined: false, numbering: none)[#lang.at(1)]
   for diff in json("./data.json").difficulty {
-    heading(level: 3, bookmarked: true, outlined: false, numbering: none)[#diff.at(1)]
+    heading(level: 3, bookmarked: false, outlined: false, numbering: none)[#diff.at(1)]
     tagged_outline(
       target_tag: x => (x.language == lang.at(0))
         and (x.difficulty == diff.at(0))
@@ -76,10 +76,10 @@ et contenir des tests codés en dur avec des assert.
 }
 
 #colbreak()
-#heading(level: 1, outlined: false, numbering: none)[Sommaire par thème]
+#heading(level: 1, bookmarked: true, outlined: false, numbering: none)[Sommaire par thème]
 #for theme in json("./data.json").themes.sorted() {
   let theme_title = theme.replace(regex("^\w"), m=>upper(m.text))
-  heading(level: 2, bookmarked: true, outlined: false, numbering: none)[#theme_title]
+  heading(level: 2, bookmarked: true, outlined: true, numbering: none)[#theme_title]
   tagged_outline(
     target_tag: x => (theme in x.themes),
     addendum: dct => " (" + dct.tags.language + " · " + dct.tags.difficulty + ")"
